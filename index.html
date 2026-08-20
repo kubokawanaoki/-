@@ -1,11 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>直樹 | Portfolio</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, "Noto Sans JP", sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: #f5f7fa;
+        }
+
+        header {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        nav {
+            background: white;
+            text-align: center;
+            padding: 15px;
+            position: sticky;
+            top: 0;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #2563eb;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        section h2 {
+            font-size: 30px;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 8px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .skill {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .work-title {
+            font-size: 24px;
+            color: #2563eb;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 80px;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>倉内達也にエヴァのネタバレをされた</h1>
+
+    <header>
+        <h1>Naoki's Portfolio</h1>
+        <p>プログラマーを目指して学習しています</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#works">Works</a>
+    </nav>
+
+    <section id="about">
+        <h2>About</h2>
+
+        <div class="card">
+            <h3>直樹</h3>
+
+            <p>
+                プログラマーを目指してIT系の専門学校で学んでいます。
+            </p>
+
+            <p>
+                学校では、Python、MySQL、Firebaseなどを使った
+                プログラミングやデータベースについて学習しています。
+            </p>
+
+            <p>
+                実際にプログラムを作りながら、
+                「なぜこの処理が必要なのか」
+                「どうすれば使いやすくなるのか」
+                を考えることを大切にしています。
+            </p>
+
+            <p>
+                将来は、利用する人にとって便利で使いやすい
+                システムを作れるプログラマーになりたいと考えています。
+            </p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+
+        <div class="skills">
+
+            <div class="skill">
+                <h3>Python</h3>
+                <p>
+                    プログラミングの基礎や、
+                    条件分岐・繰り返し・関数などを学習しています。
+                </p>
+            </div>
+
+            <div class="skill">
+                <h3>MySQL</h3>
+                <p>
+                    SQLを使用したデータ操作や、
+                    データベース設計について学習しています。
+                </p>
+            </div>
+
+            <div class="skill">
+                <h3>Firebase</h3>
+                <p>
+                    Firebase AuthenticationやFirestoreを使用し、
+                    ユーザー認証やデータ管理を経験しました。
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="works">
+        <h2>Works</h2>
+
+        <div class="card">
+
+            <h3 class="work-title">オンラインクイズアプリ</h3>
+
+            <p>
+                ユーザーがオンラインでクイズに挑戦できる
+                Webアプリを制作しました。
+            </p>
+
+            <br>
+
+            <h4>使用技術</h4>
+            <p>
+                Python / Firebase Authentication / Firestore /
+                HTML / CSS / JavaScript
+            </p>
+
+            <br>
+
+            <h4>主な機能</h4>
+            <p>
+                ・ユーザー登録・ログイン<br>
+                ・ユーザー情報の管理<br>
+                ・クイズルームの作成・参加<br>
+                ・Firestoreを利用したデータ管理<br>
+                ・クイズへの回答
+            </p>
+
+            <br>
+
+            <h4>工夫したこと</h4>
+            <p>
+                ユーザー情報やルーム情報などをFirestoreで管理し、
+                必要なデータを取得できるように設計しました。
+                また、制作中に発生したFirebaseの権限設定による
+                エラーについて、原因を調べながら設定を見直し、
+                問題を解決しました。
+            </p>
+
+            <br>
+
+            <h4>制作を通して学んだこと</h4>
+            <p>
+                Webアプリを制作する中で、プログラムだけでなく、
+                ユーザー認証やデータベース、セキュリティ設定など、
+                複数の仕組みを組み合わせる必要があることを学びました。
+            </p>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Naoki Portfolio</p>
+    </footer>
+
 </body>
 </html>
