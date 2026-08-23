@@ -13,115 +13,369 @@
             padding: 0;
         }
 
-        body {
-
-        font-family: Arial, "Noto Sans JP", sans-serif;
-        line-height: 1.8;
-        color: #333;
-        background: linear-gradient(135deg, #eef2ff, #f5f7fa, #e0f2fe);
+        html {
+            scroll-behavior: smooth;
         }
 
+        body {
+            font-family: Arial, "Noto Sans JP", sans-serif;
+            line-height: 1.8;
+            color: #e5e7eb;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.25), transparent 30%),
+                radial-gradient(circle at 90% 70%, rgba(6, 182, 212, 0.2), transparent 30%),
+                linear-gradient(135deg, #0f172a, #172554, #0f172a);
+            min-height: 100vh;
+        }
+
+        /* =========================
+           Header
+        ========================= */
+
         header {
-            background: linear-gradient(135deg, #1e3a8a, #2563eb, #06b6d4);
-            color: white;
+            position: relative;
+            overflow: hidden;
             text-align: center;
-            padding: 80px 20px;
+            padding: 110px 20px 100px;
+            background:
+                linear-gradient(135deg, rgba(30, 58, 138, 0.95), rgba(37, 99, 235, 0.9), rgba(6, 182, 212, 0.85));
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        header::before,
+        header::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(10px);
+            opacity: 0.3;
+        }
+
+        header::before {
+            width: 300px;
+            height: 300px;
+            background: #60a5fa;
+            top: -150px;
+            left: -100px;
+        }
+
+        header::after {
+            width: 350px;
+            height: 350px;
+            background: #22d3ee;
+            bottom: -200px;
+            right: -100px;
         }
 
         header h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+            font-size: clamp(38px, 7vw, 64px);
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
         }
 
         header p {
-            font-size: 18px;
+            position: relative;
+            z-index: 1;
+            font-size: 20px;
+            opacity: 0.95;
         }
 
+        .subtitle {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 6px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 999px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* =========================
+           Navigation
+        ========================= */
+
         nav {
-            background: white;
-            text-align: center;
-            padding: 15px;
             position: sticky;
             top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         nav a {
-            color: #333;
+            color: #e5e7eb;
             text-decoration: none;
-            margin: 0 20px;
+            margin: 0 12px;
+            padding: 7px 15px;
+            border-radius: 8px;
             font-weight: bold;
+            transition: 0.3s;
         }
 
         nav a:hover {
-            color: #2563eb;
+            color: white;
+            background: rgba(37, 99, 235, 0.5);
+            transform: translateY(-2px);
         }
 
+        /* =========================
+           Sections
+        ========================= */
+
         section {
-            max-width: 1000px;
-            margin: 60px auto;
+            max-width: 1050px;
+            margin: 90px auto;
             padding: 0 20px;
         }
 
         section h2 {
-            font-size: 30px;
-            margin-bottom: 25px;
-            border-bottom: 3px solid #2563eb;
-            padding-bottom: 8px;
+            position: relative;
+            font-size: 34px;
+            margin-bottom: 35px;
+            padding-left: 18px;
+            color: white;
         }
 
-        .card {
-            background: white;
-            padding: 30px;
-            margin-bottom: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        section h2::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 5px;
+            height: 34px;
+            border-radius: 10px;
+            background: linear-gradient(#38bdf8, #2563eb);
         }
+
+        section h2::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 3px;
+            margin-top: 8px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #38bdf8, transparent);
+        }
+
+        /* =========================
+           Cards
+        ========================= */
+
+        .card {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 35px;
+            margin-bottom: 25px;
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(12px);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 20px 55px rgba(0, 0, 0, 0.35);
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            color: #d1d5db;
+        }
+
+        /* =========================
+           Skills
+        ========================= */
 
         .skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
         }
 
         .skill {
-            background: white;
-            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 30px 25px;
             text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 18px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .skill::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #2563eb, #06b6d4);
+        }
+
+        .skill:hover {
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.45);
         }
 
         .skill h3 {
-            color: #2563eb;
-            margin-bottom: 10px;
+            color: #38bdf8;
+            margin-bottom: 12px;
+            font-size: 22px;
         }
+
+        .skill p {
+            color: #cbd5e1;
+        }
+
+        /* =========================
+           Works
+        ========================= */
 
         .work-title {
-            font-size: 24px;
-            color: #2563eb;
-            margin-bottom: 15px;
+            font-size: 28px;
+            color: #38bdf8;
+            margin-bottom: 18px;
         }
+
+        .work-description {
+            font-size: 17px;
+            color: #d1d5db;
+        }
+
         .quiz-images {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin: 25px 0;
- }
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin: 30px 0;
+        }
 
         .quiz-images img {
+            display: block;
             width: 100%;
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+            transition: 0.35s;
         }
 
-        footer {
-            background: #1f2937;
+        .quiz-images img:hover {
+            transform: scale(1.02);
+            border-color: rgba(56, 189, 248, 0.6);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+        }
+
+        /* =========================
+           Headings inside Works
+        ========================= */
+
+        .work-info {
+            margin-top: 30px;
+            padding: 22px;
+            background: rgba(15, 23, 42, 0.55);
+            border-radius: 14px;
+            border-left: 4px solid #2563eb;
+        }
+
+        .work-info h4 {
+            color: #38bdf8;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+
+        .work-info p {
+            margin-bottom: 0;
+        }
+
+        /* =========================
+           Button
+        ========================= */
+
+        .play-button {
+            display: inline-block;
+            margin: 10px 0 25px;
+            padding: 13px 25px;
             color: white;
+            background: linear-gradient(135deg, #2563eb, #06b6d4);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
+            transition: 0.3s;
+        }
+
+        .play-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(6, 182, 212, 0.4);
+        }
+
+        /* =========================
+           Footer
+        ========================= */
+
+        footer {
+            background: rgba(2, 6, 23, 0.9);
+            color: #94a3b8;
             text-align: center;
-            padding: 30px;
-            margin-top: 80px;
+            padding: 35px 20px;
+            margin-top: 100px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* =========================
+           Mobile
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 80px 20px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            nav {
+                gap: 0;
+            }
+
+            nav a {
+                margin: 0 3px;
+                padding: 6px 9px;
+                font-size: 14px;
+            }
+
+            section {
+                margin: 60px auto;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .card {
+                padding: 25px 20px;
+            }
+
+            .work-title {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -129,7 +383,10 @@
 <body>
 
     <header>
+        <div class="subtitle">PROGRAMMER / PORTFOLIO</div>
+
         <h1>久保川 直樹</h1>
+
         <p>プログラマーを目指して学習しています</p>
     </header>
 
@@ -140,6 +397,7 @@
     </nav>
 
     <section id="about">
+
         <h2>About</h2>
 
         <div class="card">
@@ -164,10 +422,13 @@
                 将来は、利用する人にとって便利で使いやすい
                 システムを作れるプログラマーになりたいと考えています。
             </p>
+
         </div>
+
     </section>
 
     <section id="skills">
+
         <h2>Skills</h2>
 
         <div class="skills">
@@ -197,71 +458,96 @@
             </div>
 
         </div>
+
     </section>
 
     <section id="works">
+
         <h2>Works</h2>
 
         <div class="card">
 
             <h3 class="work-title">オンラインクイズアプリ</h3>
 
-            <p>
+            <p class="work-description">
                 ユーザーがオンラインでクイズに挑戦できる
                 Webアプリを制作しました。
             </p>
 
-        <div class="quiz-images">
-            <img src="quiz1.png" alt="オンラインクイズアプリの画面1">
-            <img src="quiz2.png" alt="オンラインクイズアプリの画面2">
-            <img src="quiz3.png" alt="オンラインクイズアプリの画面3">
-        </div>
+            <div class="quiz-images">
+                <img src="quiz1.png" alt="オンラインクイズアプリの画面1">
+                <img src="quiz2.png" alt="オンラインクイズアプリの画面2">
+                <img src="quiz3.png" alt="オンラインクイズアプリの画面3">
+            </div>
 
-            <a href="https://quiz-mc0e.onrender.com/" target="_blank">
-                オンラインクイズを実際にプレイする
+            <a
+                class="play-button"
+                href="https://quiz-mc0e.onrender.com/"
+                target="_blank"
+                rel="noopener noreferrer">
+                ▶ オンラインクイズを実際にプレイする
             </a>
-            <br>
 
-            <h4>使用技術</h4>
-            <p>
-                Python / Firebase Authentication / Firestore /
-                HTML / CSS / JavaScript
-            </p>
+            <div class="work-info">
 
-            <br>
+                <h4>使用技術</h4>
 
-            <h4>主な機能</h4>
-            <p>
-                ・ユーザー登録・ログイン<br>
-                ・ユーザー情報の管理<br>
-                ・クイズルームの作成・参加<br>
-                ・Firestoreを利用したデータ管理<br>
-                ・クイズへの回答
-            </p>
+                <p>
+                    Python / Firebase Authentication / Firestore /
+                    HTML / CSS / JavaScript
+                </p>
 
-            <br>
+            </div>
 
-            <h4>工夫したこと</h4>
-            <p>
+            <div class="work-info">
 
-ユーザー情報やルーム情報などをFirestoreで管理し、必要なデータを取得できるように設計しました。
+                <h4>主な機能</h4>
 
-また、クイズルームを作成して他のユーザーが参加できるようにし、オンラインで複数人が一緒にクイズを楽しめる仕組みを実装しました。
+                <p>
+                    ・ユーザー登録・ログイン<br>
+                    ・ユーザー情報の管理<br>
+                    ・クイズルームの作成・参加<br>
+                    ・Firestoreを利用したデータ管理<br>
+                    ・クイズへの回答
+                </p>
 
-制作中に発生したFirebaseの権限設定によるエラーについても、原因を調べながら設定を見直し、問題を解決しました。
+            </div>
 
-            </p>
+            <div class="work-info">
 
-            <br>
+                <h4>工夫したこと</h4>
 
-            <h4>制作を通して学んだこと</h4>
-            <p>
-                Webアプリを制作する中で、プログラムだけでなく、
-                ユーザー認証やデータベース、セキュリティ設定など、
-                複数の仕組みを組み合わせる必要があることを学びました。
-            </p>
+                <p>
+                    ユーザー情報やルーム情報などをFirestoreで管理し、
+                    必要なデータを取得できるように設計しました。
+                </p>
+
+                <p>
+                    また、クイズルームを作成して他のユーザーが参加できるようにし、
+                    オンラインで複数人が一緒にクイズを楽しめる仕組みを実装しました。
+                </p>
+
+                <p>
+                    制作中に発生したFirebaseの権限設定によるエラーについても、
+                    原因を調べながら設定を見直し、問題を解決しました。
+                </p>
+
+            </div>
+
+            <div class="work-info">
+
+                <h4>制作を通して学んだこと</h4>
+
+                <p>
+                    Webアプリを制作する中で、プログラムだけでなく、
+                    ユーザー認証やデータベース、セキュリティ設定など、
+                    複数の仕組みを組み合わせる必要があることを学びました。
+                </p>
+
+            </div>
 
         </div>
+
     </section>
 
     <footer>
@@ -270,3 +556,4 @@
 
 </body>
 </html>
+```
